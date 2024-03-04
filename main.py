@@ -7,15 +7,26 @@ import button
 def main():
     # pygame setup
     pygame.init()
-    logo = pygame.image.load('water_fire.jpg')
+    logo = pygame.image.load('fire_water.jpg')
     pygame.display.set_icon(logo)
     pygame.display.set_caption("My game")
-    screen = pygame.display.set_mode((1280, 720))
+    screen = pygame.display.set_mode((1344, 840))  # taille écran x0,7
     clock = pygame.time.Clock()
+    screen_height = screen.get_height()
+    screen_width = screen.get_width()
 
     # game variables
     game_paused = False
     menu_state = "main"
+
+    jump_height = 100  # Hauteur du saut
+    initial_jump_speed = 10  # Vitesse initiale du saut
+    gravity = 1  # Gravité
+
+    x = 50
+    y = screen_height - 100
+    y_speed = 0
+    is_jumping = False
 
     # define colours
     black = (0, 0, 0)
@@ -49,24 +60,25 @@ def main():
         img = font.render(text, True, text_colo)
         screen.blit(img, (x, y))
 
-    # back_ground = pygame.image.load('temple_background.jpg').convert()
-    # back_ground = pygame.transform.scale(back_ground, (880, 620))
-
     # square hit box of the character
     fire_boy = pygame.image.load('fire_boy.png').convert_alpha()
-    fire_boy = pygame.transform.scale(fire_boy, (57, 200))
+    fire_boy = pygame.transform.scale(fire_boy, (50, 80))
     hit_box_fire = fire_boy.get_rect()
-    hit_box_fire.topleft = (200, 200)
+    hit_box_fire.bottomleft = (200, screen_height-200)
 
     run = True
     # game loop
     while run:
-
-        screen.fill((52, 78, 91))
+        screen.fill(black)
+        back_ground = pygame.image.load('temple_background.jpg').convert()
+        back_ground = pygame.transform.scale(back_ground, (screen_width, screen_height))
+        screen.blit(back_ground, (0, 0))
         clock.tick(60)
+
 
         # check if game is paused
         if game_paused:
+            screen.fill((52, 78, 91))
             # check if is the menu
             if menu_state == "main":
                 # draw pause screen buttons
@@ -89,13 +101,13 @@ def main():
                 if back_button.draw(screen):
                     menu_state = "main"
         else:
-            draw_text("Press SPACE to pause", main_font, text_col, 400, 310)
+            draw_text("Press P to pause", main_font, text_col, 500, 100)
 
             square = [
-                pygame.Rect(240, 660, 815, 15),  # bottom horizontal -
-                pygame.Rect(240, 30, 800, 15),  # top horizontal -
-                pygame.Rect(240, 30, 15, 640),  # left vertical |
-                pygame.Rect(1040, 30, 15, 640)  # right vertical |
+                pygame.Rect(250, 760, 810, 10),  # bottom horizontal -
+                pygame.Rect(250, 70, 800, 10),  # top horizontal -
+                pygame.Rect(250, 70, 10, 700),  # left vertical |
+                pygame.Rect(1050, 70, 10, 700)  # right vertical |
             ]
 
             for platform in square:
@@ -103,32 +115,43 @@ def main():
 
             keys = pygame.key.get_pressed()
 
-            if keys[pygame.K_UP]:
+            if keys[pygame.K_UP] and not is_jumping:  # remove in the future
                 hit_box_fire.move_ip(0, -5)
-            if keys[pygame.K_DOWN]:
+            if keys[pygame.K_DOWN] and not is_jumping:
                 hit_box_fire.move_ip(0, 5)
             if keys[pygame.K_LEFT]:
                 hit_box_fire.move_ip(-5, 0)
             if keys[pygame.K_RIGHT]:
                 hit_box_fire.move_ip(5, 0)
 
+            # Mise à jour de la position du personnage
+            if is_jumping:
+                y_speed += gravity
+                hit_box_fire.y += y_speed
+
+                if hit_box_fire.y >= screen_height - 200:  # Si le personnage touche le sol
+                    hit_box_fire.y = screen_height - 200
+                    is_jumping = False
+
             screen.blit(fire_boy, hit_box_fire)
 
         # event handler
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:  # press SPACE button tp pause the game
+                if event.key == pygame.K_p:  # press SPACE button to pause the game
                     game_paused = True
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE and not is_jumping:
+                    is_jumping = True
+                    y_speed = -initial_jump_speed
+
             if event.type == pygame.QUIT:  # pygame.QUIT event means the user clicked X to close your window
                 run = False
-
         pygame.display.update()
 
     pygame.quit()
 
-
-    # fire_boy = pygame.transform.scale(fire_boy, (200, 150))
-    #
     # water_girl = pygame.image.load('watergirl_pixel.jpg').convert_alpha()
     # water_girl = pygame.transform.scale(water_girl, (200, 100))
     #
