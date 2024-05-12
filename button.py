@@ -29,3 +29,9 @@ class Button:
         surface.blit(self.image, (self.rect.x, self.rect.y))
 
         return action
+
+    def get_dimension(self):
+        return self.image.get_width(), self.image.get_height()
+
+    def get_coordinate(self):
+        return self.rect.x, self.rect.y

@@ -3427,7 +3427,7 @@
    <property name="climbale" type="bool" value="false"/>
    <property name="ground" type="bool" value="false"/>
    <property name="health" type="int" value="0"/>
-   <property name="provides" value="false"/>
+   <property name="provides" type="bool" value="false"/>
    <property name="requires" value="green key"/>
    <property name="solid" type="bool" value="false"/>
   </properties>
