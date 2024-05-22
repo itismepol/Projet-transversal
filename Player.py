@@ -1,4 +1,5 @@
 import pygame
+import Box
 
 
 class Player:
@@ -12,6 +13,8 @@ class Player:
         self.player_right = [pygame.transform.scale(image, (39.5, 55.2)) for image in player_right]
         self.player_left = [pygame.transform.flip(image, True, False) for image in self.player_right]
 
+        self.tile_size = 50
+
         # Variable to remember which frame is displayed
         self.player_right_frame = 0
         self.player_left_frame = 0
@@ -20,7 +23,7 @@ class Player:
         self.direction = "stand"
         self.is_jumping = False
         self.jump_speed = 17
-        self.gravity = 1.45
+        self.gravity = 1.6
         self.y_speed = 0
         self.rect = self.player_stand.get_rect()
         self.y_ground = 760
@@ -30,7 +33,10 @@ class Player:
         self.jump_cooldown = 28
         self.controls_keys = controls_keys
         self.win = False
-        self.door = False
+        self.door2 = False
+        self.door1 = False
+        box_x, box_y = 600, 200
+        self.box = Box.Box(box_x, box_y, self.tile_size)
 
     def update(self):
         self.keys_management()
@@ -62,12 +68,18 @@ class Player:
                         self.is_jumping = False
 
                 if my_tile[2] == 9 and self.power == 'W':
-                    self.door = True
+                    self.door1 = True
                     self.win = True
 
+                if my_tile[2] != 9:
+                    self.door1 = False
+
                 if my_tile[2] == 10 and self.power == 'F':
-                    self.door = True
+                    self.door2 = True
                     self.win = True
+
+                if my_tile[2] != 10:
+                    self.door2 = False
 
     def keys_management(self):
         self.jump_cooldown += 1
@@ -85,6 +97,7 @@ class Player:
             self.jump_cooldown = 0
             self.is_jumping = True
             self.y_speed = -self.jump_speed
+            self.box.box_speed = -self.jump_speed
             self.direction = "jump"
 
         if keys_pressed[self.controls_keys["down"]]:
@@ -102,7 +115,7 @@ class Player:
         # ajout de la gravité
         if self.y_speed > 10:
             self.y_speed = 10
-        self.rect.y += self.y_speed
+        self.rect.y += self.y_speed + self.gravity
 
         if sum(keys_pressed) == 0:  # Le joueur ne bouge pas
             self.direction = "stand"
@@ -125,3 +138,46 @@ class Player:
             screen.blit(self.player_land, (self.rect.x, self.rect.y))
         else:
             screen.blit(self.player_stand, (self.rect.x, self.rect.y))
+
+    def collide_box(self, the_box):
+        for my_tile in self.tiles_list:
+            if my_tile[1].colliderect(self.box.rect):
+                if my_tile[2] == 1:
+                    if self.direction == "left":
+                        self.box.rect.left = my_tile[1].right
+
+                    if self.direction == "right":
+                        self.box.rect.right = my_tile[1].left
+
+                if my_tile[2] in (3, 4, 5):
+                    if self.box.box_speed < 0:
+                        self.box.rect.top = my_tile[1].bottom
+
+                    if self.box.box_speed >= 0:
+                        self.box.rect.bottom = my_tile[1].top
+
+        if the_box.box_speed > 10:
+            the_box.box_speed = 10
+
+        the_box.box_speed += 1
+        the_box.rect.y += the_box.box_speed
+
+        if the_box.rect.y >= self.y_ground:
+            the_box.rect.y = self.y_ground
+
+        if self.rect.colliderect(the_box):
+            if self.direction == "left":
+                the_box.rect.right = self.rect.left
+
+            if self.direction == "right":
+                the_box.rect.left = self.rect.right
+
+            # if self.direction == 'right':
+            #     the_box.x = self.rect.right + the_box.rect.width
+            # if self.direction == 'left':
+            #     the_box.x = self.rect.left - the_box.rect.width
+            # if self.direction == 'stand' and self.y_speed <= 0:
+            #     self.rect.bottom = the_box.rect.top
+
+        if the_box.y >= self.y_ground:  # Si la box touche le sol
+            the_box.y = self.y_ground

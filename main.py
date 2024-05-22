@@ -2,6 +2,8 @@ import pygame
 import button
 import Player
 import World
+import Box
+import time
 
 
 def main():
@@ -36,47 +38,55 @@ def main():
     pygame.mixer.music.play(-1)
 
     # load button images
-    resume_img = pygame.image.load("button_resume.png").convert_alpha()
-    quit_img = pygame.image.load("button_quit.png").convert_alpha()
-    audio_img = pygame.image.load('button_audio.png').convert_alpha()
-    back_img = pygame.image.load('button_back.png').convert_alpha()
-    sound_img = pygame.image.load('button_sound.png').convert_alpha()
-    plus_img = pygame.image.load('Plus_sound.png').convert_alpha()
-    minus_img = pygame.image.load('Minus_sound.png').convert_alpha()
-    pause_img = pygame.image.load('Play.png').convert_alpha()
-    play_img = pygame.image.load('Pause_button.png').convert_alpha()
-    retry_img = pygame.image.load('button_retry.png').convert_alpha()
-    home_img = pygame.image.load('button_home.png').convert_alpha()
-    # credit_img = pygame.image.load('button_credit.png').convert_alpha()
+    resume_img = pygame.image.load("resume_button.png").convert_alpha()
+    quit_img = pygame.image.load("quit_button.png").convert_alpha()
+    audio_img = pygame.image.load('audio_button.png').convert_alpha()
+    back_img = pygame.image.load('back_button.png').convert_alpha()
+    sound_img = pygame.image.load('sound_button.png').convert_alpha()
+    plus_img = pygame.image.load('plus_button.png').convert_alpha()  # look for the imageS
+    minus_img = pygame.image.load('minus_button.png').convert_alpha()
+    pause_img = pygame.image.load('play_button.png').convert_alpha()
+    play_img = pygame.image.load('pause_button.png').convert_alpha()
+    retry_img = pygame.image.load('retry_button.png').convert_alpha()
+    home_img = pygame.image.load('home_button.png').convert_alpha()
+    credit_img = pygame.image.load('credit_button.png').convert_alpha()
+    start_img = pygame.image.load('start_button.png').convert_alpha()
+    levels_img = pygame.image.load('levels_button.png').convert_alpha()
+    game_over_img = pygame.image.load('game_over.png').convert_alpha()
+    first_lev_img = pygame.image.load('first_level_button.png').convert_alpha()
+    second_lev_img = pygame.image.load('second_level_button.png').convert_alpha()
+    third_lev_img = pygame.image.load('third_level_button.png').convert_alpha()
 
     # create instance of the button
-    resume_button = button.Button(590, 130, resume_img, 1.2)
-    quit_button = button.Button(screen_width//2, screen_height//2+70, quit_img, 1.2)
-    audio_button = button.Button(500, 250, audio_img, 1.2)
-    back_button = button.Button(600, 450, back_img, 1.2)
-    sound_button = button.Button(555, 200, sound_img, 1.2)
+    resume_button = button.Button(screen_width//2, 130, resume_img, 0.545)
+    quit_button = button.Button(screen_width//2, screen_height//2+210, quit_img, 0.575)
+    audio_button = button.Button(screen_width//2, 250, audio_img, 0.545)
+    back_button = button.Button(screen_width//2, 450, back_img, 0.585)
+    sound_button = button.Button(screen_width//2, 200, sound_img, 0.585)
     plus_button = button.Button(sound_button.get_coordinate()[0] - plus_img.get_width()-50,
                                 sound_button.get_coordinate()[1], plus_img, 1.5)
     minus_button = button.Button(sound_button.get_coordinate()[0]+sound_button.get_dimension()[0]+50,
-                                 sound_button.get_coordinate()[1], minus_img, 1.5)
+                                 sound_button.get_coordinate()[1], minus_img, 0.585)
     pause_button = button.Button(sound_button.get_coordinate()[0]+50,
-                                 sound_button.get_coordinate()[1]+sound_img.get_height()+50, pause_img, 1.5)
+                                 sound_button.get_coordinate()[1]+sound_img.get_height()+50, pause_img, 0.585)
     play_button = button.Button(sound_button.get_coordinate()[0]-50,
-                                sound_button.get_coordinate()[1]+sound_img.get_height()+50, play_img, 1.5)
-    retry_button = button.Button(590, 375, retry_img, 1.2)
-    retry_button2 = button.Button(590, 575, retry_img, 1.2)
-    home_button = button.Button(590, 200, home_img, 1.2)
+                                sound_button.get_coordinate()[1]+sound_img.get_height()+50, play_img, 0.585)
+    retry_button = button.Button(screen_width//2, 375, retry_img, 0.585)
+    retry_button2 = button.Button(screen_width//2, screen_height//2+100, retry_img, 0.585)
+    home_button = button.Button(screen_width//2, 200, home_img, 0.400)
+    home_button2 = button.Button(screen_width // 2, screen_height//2+200, home_img, 0.400)
+    credit_button = button.Button(screen_width//2, screen_height//2-70, credit_img, 0.545)
+    start_button = button.Button(screen_width//2, screen_height//2-210, start_img, 0.585)
+    # levels button
+    levels_button = button.Button(screen_width//2, screen_height//2+70, levels_img, 0.254)
+    first_level_button = button.Button(screen_width//2, screen_height//2 + 220, first_lev_img, 0.1)
+    second_level_button = button.Button(screen_width//2, screen_height//2-220, second_lev_img,0.1)
+    third_level_button = button.Button(screen_width//2, screen_height//2, third_lev_img, 0.1)
 
     def draw_text(text, font, text_colo, x_cor, y_cor):
         text_print = font.render(text, True, text_colo)
         text_rect = text_print.get_rect(center=(x_cor, y_cor))
         screen.blit(text_print, text_rect)
-
-    def draw_text2(text, font, color, surface, x, y):
-        text_obj = font.render(text, True, color)
-        text_rect = text_obj.get_rect(center=(x, y))
-        surface.blit(text_obj, text_rect)
-        return text_rect
 
     def draw_grid():
         for horizontal in range(16):
@@ -88,8 +98,8 @@ def main():
             pygame.draw.line(screen, black, (250+vertical*tile_size, 65),
                              (250+vertical*tile_size, 815))
 
-    # création de la carte (tile list)
-    world_data = [
+    # création des cartes (tiles list)
+    data_level_one = [
         [1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1],
         [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
         [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
@@ -107,14 +117,48 @@ def main():
         [1, 0, 0, 0, 0, 1, 6, 6, 6, 6, 8, 7, 7, 7, 7, 1, 0, 0, 0, 0, 1],
         [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
     ]
-
+    data_level_two = [
+        [1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 5, 5, 5, 5, 5, 0, 0, 0, 5, 5, 5, 5, 5, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+        [1, 3, 0, 0, 0, 1, 0, 0, 0, 5, 5, 5, 0, 0, 0, 1, 0, 0, 0, 3, 1],
+        [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 3, 1, 0, 0, 0, 10, 0, 9, 0, 0, 0, 1, 3, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 1, 0, 0, 0, 3, 3, 3, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+        [1, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 3, 1],
+        [1, 0, 0, 0, 0, 1, 0, 3, 3, 0, 0, 0, 3, 3, 0, 1, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 1, 6, 6, 6, 6, 8, 7, 7, 7, 7, 1, 0, 0, 0, 0, 1],
+        [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
+    ]
+    data_level_three = [
+        [1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 6, 6, 8, 6, 6, 6, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 5, 0, 0, 5, 5, 5, 5, 5, 5, 0, 0, 0, 5, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+        [1, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 3, 1],
+        [1, 0, 0, 0, 0, 1, 0, 0, 0, 10, 0, 9, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 3, 1, 0, 0, 0, 3, 3, 3, 0, 0, 0, 1, 3, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+        [1, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 3, 1],
+        [1, 0, 0, 0, 0, 1, 0, 3, 3, 0, 0, 0, 3, 3, 0, 1, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 1, 6, 6, 6, 6, 8, 7, 7, 7, 7, 1, 0, 0, 0, 0, 1],
+        [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
+    ]
     for row in range(rows):
         for col in range(cols):
-            print(world_data[row][col], end=' ')
+            print(data_level_one[row][col], end=' ')
         print()
 
     run = True
-    start_game_rect = None
 
     player1_controls = {'left': pygame.K_q, 'right': pygame.K_d, 'jump': pygame.K_z, 'down': pygame.K_s}
     player2_controls = {'left': pygame.K_LEFT, 'right': pygame.K_RIGHT, 'jump': pygame.K_UP,
@@ -157,7 +201,31 @@ def main():
         ]
     }
 
-    world = World.World(world_data, tile_size)
+    def change_level(level):
+        if level == "1":
+            the_world = world1
+        elif level == "2":
+            the_world = world2
+        else:
+            the_world = world3
+        return the_world
+
+    def reset_game(p1, p2, w):
+        p1.rect.x, p1.rect.y = start_pos_p1_x, start_pos_y
+        p2.rect.right, p2.rect.y = start_pos_p2_x, start_pos_y
+        p1.is_jumping, p2.is_jumping = False, False
+        p1.win, p2.win = False, False
+        p1.door1, p2.door1 = False, False
+        p1.door2, p2.door2 = False, False
+        w.door_open1 = False
+        w.door_open2 = False
+
+    world1 = World.World(data_level_one, tile_size)
+    world2 = World.World(data_level_two, tile_size)
+    world3 = World.World(data_level_three, tile_size)
+
+    world = change_level("1")
+
     player1 = Player.Player(world.tiles_list, player1_controls, player1_images, 'W')
     player2 = Player.Player(world.tiles_list, player2_controls, player2_images, 'F')
     start_pos_p1_x = 325
@@ -165,6 +233,9 @@ def main():
     start_pos_y = 760
     back_ground = pygame.image.load('castle-transformedx4.jpeg').convert()
     back_ground = pygame.transform.scale(back_ground, (playground_width, playground_height))
+    box_x, box_y = 350, 150
+    box = Box.Box(box_x, box_y, 50)
+    win_condition_met_time = None
 
     # game loop
     while run:
@@ -175,28 +246,76 @@ def main():
             draw_text("THE ELEMENTARY ADVENTURE STARTS NOW!", title_font, white, screen_width // 2, 70)
             pygame.draw.rect(screen, black, (0, screen_height // 2, screen_width, screen_height // 2))
 
-            start_game_rect = draw_text2('START GAME', main_font, white, screen, screen_width // 2,
-                                         screen_height // 2-70)
+            if credit_button.draw(screen):
+                menu_state = "credit"
+            if start_button.draw(screen):
+                player1.rect.x, player1.rect.y = start_pos_p1_x, start_pos_y
+                player2.rect.right, player2.rect.y = start_pos_p2_x, start_pos_y
+                menu_state = "game"
+            if levels_button.draw(screen):
+                menu_state = "levels"
             if quit_button.draw(screen):
                 run = False
+
+        if menu_state == "levels":
+            screen.fill(blue)
+            pygame.draw.rect(screen, black, (0, screen_height // 2, screen_width, screen_height // 2))
+            reset_game(player1, player2, world)
+            if first_level_button.draw(screen):
+                world = change_level("1")
+                menu_state = "game"
+            if second_level_button.draw(screen):
+                world = change_level("2")
+                menu_state = "game"
+            if third_level_button.draw(screen):
+                world = change_level("3")
+                menu_state = "game"
 
         if menu_state == "game":
             screen.fill(blue)
             screen.blit(back_ground, (250, 65))
+
             world.draw()
-            draw_text("PRESS P TO PAUSE", main_font, white, 600, 10)
+
+            if player1.door1:
+                world.door_open1 = True
+            else:
+                world.door_open1 = False
+
+            if player2.door2:
+                world.door_open2 = True
+            else:
+                world.door_open2 = False
+
+            draw_text("PRESS P TO PAUSE", main_font, white, playground_width-250, 30)
 
             # draw_grid()
 
+            world1.update_world()
             player1.update()
             player2.update()
-            # pygame.draw.rect(screen, white, (player.rect.x, player.rect.y, player.rect.width, player.rect.height), 2)
-            #  can help with rect of the player
-        if player1.door:
-            pass
 
-        if player1.win and player2.win:
-            menu_state = "win"
+            box.draw_rect()
+
+            player1.collide_box(box)
+            player2.collide_box(box)
+
+            # pygame.draw.rect(screen, white,(player2.rect.x, player2.rect.y, player2.rect.width,player2.rect.height),2)
+            #  can help with rect of the player
+
+            if player1.win and player2.win:
+                if win_condition_met_time is None:
+                    win_condition_met_time = time.time()
+
+            current_time = time.time()
+
+            if win_condition_met_time and (current_time - win_condition_met_time) >= 1:
+                menu_state = "win"
+
+        if not (player1.win and player2.win):
+            win_condition_met_time = None
+            if player1.win and player2.win:
+                menu_state = "win"
 
         if (pygame.sprite.spritecollide(player1, world.lava_group, False) and player1.power == "W"
                 or pygame.sprite.spritecollide(player2, world.water_group, False) and player2.power == "F"):
@@ -209,30 +328,25 @@ def main():
             menu_state = "game_over"
 
         if menu_state == "game_over":
+            reset_game(player1, player2, world)
             screen.fill(blue)
-
             pygame.draw.rect(screen, white, (250, 65, playground_width, playground_height), 10)
-            draw_text("GAME OVER", main_font, white, (playground_width+250)//2, (playground_height+65)//2)
+
+            screen.blit(game_over_img, (playground_width//2+121, playground_height/4))
+
             if retry_button2.draw(screen):
-                player1.rect.x, player1.rect.y = start_pos_p1_x, start_pos_y
-                player2.rect.right, player2.rect.y = start_pos_p2_x, start_pos_y
                 menu_state = "game"
 
-            if home_button.draw(screen):
-                player1.rect.x, player1.rect.y = start_pos_p1_x, start_pos_y
-                player2.rect.right, player2.rect.y = start_pos_p2_x, start_pos_y
+            if home_button2.draw(screen):
                 menu_state = "start_menu"
 
         if menu_state == "win":
+            reset_game(player1, player2, world)
             screen.fill(blue)
-            player1.win = False
-            player2.win = False
 
             pygame.draw.rect(screen, white, (250, 65, playground_width, playground_height), 10)
             draw_text("SUCCEED !", main_font, white, (playground_width+250)//2, (playground_height+65)//2)
             if retry_button2.draw(screen):
-                player1.rect.x, player1.rect.y = start_pos_p1_x, start_pos_y
-                player2.rect.right, player2.rect.y = start_pos_p2_x, start_pos_y
                 menu_state = "game"
 
             if home_button.draw(screen):
@@ -243,20 +357,22 @@ def main():
             screen.fill(blue)
             pygame.draw.rect(screen, white, (250, 65, playground_width, playground_height), 10)
             # check if is the menu
-            if menu_state == "game":
-                # draw pause screen buttons
-                if resume_button.draw(screen):
-                    game_paused = False
-                if audio_button.draw(screen):
-                    menu_state = "audio"
-                if retry_button.draw(screen):
-                    game_paused = False
-                    player1.rect.x, player1.rect.y = start_pos_p1_x, start_pos_y
-                    player2.rect.right, player2.rect.y = start_pos_p2_x, start_pos_y
-                    menu_state = "game"
+            # draw pause screen buttons
+            if resume_button.draw(screen):
+                game_paused = False
+            if audio_button.draw(screen):
+                menu_state = "audio"
+            if retry_button.draw(screen):
+                reset_game(player1, player2, world)
+                menu_state = "game"
+                game_paused = False
 
-                if quit_button.draw(screen):
-                    run = False
+            if levels_button.draw(screen):
+                menu_state = "levels"
+                game_paused = False
+
+            if quit_button.draw(screen):
+                run = False
 
             # check if the audio menu is open
             if menu_state == "audio":
@@ -285,12 +401,6 @@ def main():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_p:  # press SPACE button to pause the game
                     game_paused = True
-
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                if start_game_rect.collidepoint(event.pos):
-                    player1.rect.x, player1.rect.y = start_pos_p1_x, start_pos_y
-                    player2.rect.right, player2.rect.y = start_pos_p2_x, start_pos_y
-                    menu_state = "game"
 
             if event.type == pygame.QUIT:  # pygame.QUIT event means the user clicked X to close your window
                 pygame.mixer.music.unload()

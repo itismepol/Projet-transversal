@@ -8,9 +8,10 @@ class World:
         self.data = data
         self.tile_size = tile_size
         self.screen = pygame.display.get_surface()
+        self.door_open1 = False
+        self.door_open2 = False
+
         # load images
-        # dirt_img = pygame.image.load('dirt.png')
-        grass_img = pygame.image.load('grass.png')
         stone = pygame.image.load('green_ground.png')
         half_stone_img = pygame.image.load('half_stone.png')
         stone2 = pygame.image.load('green_stone.png')
@@ -18,14 +19,15 @@ class World:
         red_door_close = pygame.image.load('red_door_close.png')
         blue_door_open = pygame.image.load('blue_door.png')
         red_door_open = pygame.image.load('red_door.png')
+
         self.image1 = pygame.transform.scale(stone2, (self.tile_size, self.tile_size))
         self.image2 = pygame.transform.scale(stone, (self.tile_size, self.tile_size))
         self.image3 = pygame.transform.scale(half_stone_img, (self.tile_size, self.tile_size / 2))
-        self.image4 = pygame.transform.scale(grass_img, (self.tile_size, self.tile_size))
         self.image9 = pygame.transform.scale(blue_door_close, (self.tile_size, self.tile_size*(3/2)))
         self.image10 = pygame.transform.scale(red_door_close, (self.tile_size, self.tile_size * (3/2)))
         self.image11 = pygame.transform.scale(blue_door_open, (self.tile_size, self.tile_size * (3 / 2)))
         self.image12 = pygame.transform.scale(red_door_open, (self.tile_size, self.tile_size * (3 / 2)))
+
         self.lava_group = pygame.sprite.Group()
         self.water_group = pygame.sprite.Group()
         self.poison_group = pygame.sprite.Group()
@@ -99,6 +101,7 @@ class World:
                     rect = self.image9.get_rect()
                     rect.x = 250 + col_count * self.tile_size
                     rect.y = 40 + row_count * self.tile_size
+
                     the_tiles = (self.image9, rect, tiles)
                     self.tiles_list.append(the_tiles)
 
@@ -106,6 +109,7 @@ class World:
                     rect = self.image10.get_rect()
                     rect.x = 250 + col_count * self.tile_size
                     rect.y = 40 + row_count * self.tile_size
+
                     the_tiles = (self.image10, rect, tiles)
                     self.tiles_list.append(the_tiles)
 
@@ -121,4 +125,17 @@ class World:
             self.lava_group.draw(self.screen)
             self.water_group.draw(self.screen)
             self.poison_group.draw(self.screen)
-            # pygame.draw.rect(self.screen, (255, 255, 255), tiles[1],2)  # can help with rect
+            # pygame.draw.rect(self.screen, (255, 255, 255), tiles[1], 2)  # can help with rect
+
+    def update_world(self):
+        for i, tile_img in enumerate(self.tiles_list):
+            if tile_img[2] == 9:
+                if self.door_open1:
+                    self.tiles_list[i] = (self.image11, tile_img[1], tile_img[2])
+                else:
+                    self.tiles_list[i] = (self.image9, tile_img[1], tile_img[2])
+            if tile_img[2] == 10:
+                if self.door_open2:
+                    self.tiles_list[i] = (self.image12, tile_img[1], tile_img[2])
+                else:
+                    self.tiles_list[i] = (self.image10, tile_img[1], tile_img[2])
