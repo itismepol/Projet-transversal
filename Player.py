@@ -71,14 +71,14 @@ class Player:
                     self.door1 = True
                     self.win = True
 
-                if my_tile[2] != 9:
+                elif my_tile[2] != 9 and not self.direction == "stand":
                     self.door1 = False
 
                 if my_tile[2] == 10 and self.power == 'F':
                     self.door2 = True
                     self.win = True
 
-                if my_tile[2] != 10:
+                elif my_tile[2] != 10 and not self.direction == "stand":
                     self.door2 = False
 
     def keys_management(self):
@@ -99,9 +99,6 @@ class Player:
             self.y_speed = -self.jump_speed
             self.box.box_speed = -self.jump_speed
             self.direction = "jump"
-
-        if keys_pressed[self.controls_keys["down"]]:
-            self.direction = "land"
 
         # Mise à jour de la position du personnage
         if self.is_jumping:
