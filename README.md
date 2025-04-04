@@ -31,9 +31,9 @@ Le projet a été développé avec les outils suivants :
 
 ## 🔧 Améliorations possibles
 Dans les versions futures, j’aimerais :
-✅ Améliorer les graphismes et l’interface utilisateur.
-✅ Optimiser le moteur physique du jeu.
-✅ Ajouter de nouvelles mécaniques de gameplay.
-✅ Réorganiser et commenter davantage le code pour le rendre plus propre et compréhensible.
+>✅ Améliorer les graphismes et l’interface utilisateur.
+>✅ Optimiser le moteur physique du jeu.
+>✅ Ajouter de nouvelles mécaniques de gameplay.
+>✅ Réorganiser et commenter davantage le code pour le rendre plus propre et compréhensible.
 
 __Bonne aventure sur THE ELEMENTARY ADVENTURE ! 🎮🔥💧__
