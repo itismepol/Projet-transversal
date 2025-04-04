@@ -17,7 +17,7 @@ Malgré ces imperfections, c'est un projet qui __me tient à cœur__. J'y ai con
 
 ## 🚀 Installation
 __1️⃣ Télécharger le jeu__
-Un fichier exécutable main.exe est disponible. Pour le récupérer, utilisez la commande : 
+Un fichier exécutable main.exe est disponible. Pour le récupérer, utilisez la commande :
 `curl -O https://raw.githubusercontent.com/itismepol/Projet-transversal/.exe/main.exe`
 
 ## 🛠️ Technologies utilisées
