@@ -3,6 +3,7 @@ import button
 import Player
 import World
 import time
+from Resource_path import resource_path
 
 
 def main():
@@ -84,42 +85,43 @@ def main():
     player2_controls = {'left': pygame.K_LEFT, 'right': pygame.K_RIGHT, 'jump': pygame.K_UP,
                         'down': pygame.K_DOWN}
     player2_images = {
-        'stand': "walk_P1/p3_stand.png",
-        'jump': "walk_P1/p3_jump.png",
-        'land': "walk_P1/p3_duck.png",
+        'stand': "walk_P1\\p3_stand.png",
+        'jump': "walk_P1\\p3_jump.png",
+        'land': "walk_P1\\p3_duck.png",
         'right': [
-            "walk_P1/p3_walk01.png",
-            "walk_P1/p3_walk02.png",
-            "walk_P1/p3_walk03.png",
-            "walk_P1/p3_walk04.png",
-            "walk_P1/p3_walk05.png",
-            "walk_P1/p3_walk06.png",
-            "walk_P1/p3_walk07.png",
-            "walk_P1/p3_walk08.png",
-            "walk_P1/p3_walk09.png",
-            "walk_P1/p3_walk10.png",
-            "walk_P1/p3_walk11.png",
+            "walk_P1\\p3_walk01.png",
+            "walk_P1\\p3_walk02.png",
+            "walk_P1\\p3_walk03.png",
+            "walk_P1\\p3_walk04.png",
+            "walk_P1\\p3_walk05.png",
+            "walk_P1\\p3_walk06.png",
+            "walk_P1\\p3_walk07.png",
+            "walk_P1\\p3_walk08.png",
+            "walk_P1\\p3_walk09.png",
+            "walk_P1\\p3_walk10.png",
+            "walk_P1\\p3_walk11.png",
         ]
     }
 
     player1_images = {
-        'stand': "walk_P2/p2_stand.png",
-        'jump': "walk_P2/p2_jump.png",
-        'land': "walk_P2/p2_duck.png",
+        'stand': "walk_P2\\p2_stand.png",
+        'jump': "walk_P2\\p2_jump.png",
+        'land': "walk_P2\\p2_duck.png",
         'right': [
-            "walk_P2/p2_walk01.png",
-            "walk_P2/p2_walk02.png",
-            "walk_P2/p2_walk03.png",
-            "walk_P2/p2_walk04.png",
-            "walk_P2/p2_walk05.png",
-            "walk_P2/p2_walk06.png",
-            "walk_P2/p2_walk07.png",
-            "walk_P2/p2_walk08.png",
-            "walk_P2/p2_walk09.png",
-            "walk_P2/p2_walk10.png",
-            "walk_P2/p2_walk11.png",
+            "walk_P2\\p2_walk01.png",
+            "walk_P2\\p2_walk02.png",
+            "walk_P2\\p2_walk03.png",
+            "walk_P2\\p2_walk04.png",
+            "walk_P2\\p2_walk05.png",
+            "walk_P2\\p2_walk06.png",
+            "walk_P2\\p2_walk07.png",
+            "walk_P2\\p2_walk08.png",
+            "walk_P2\\p2_walk09.png",
+            "walk_P2\\p2_walk10.png",
+            "walk_P2\\p2_walk11.png",
         ]
     }
+
     # define functions
     def change_level(level):
         if level == "1":
@@ -163,37 +165,40 @@ def main():
     screen.fill(back_grey)
 
     # load music
-    pygame.mixer.music.load("music/lofi_background.mp3")
+    pygame.mixer.music.load(resource_path("music\\lofi_background.mp3"))
     pygame.mixer.music.play(-1)
 
     # load button images
-    resume_img = pygame.image.load('buttons/resume_button.png').convert_alpha()
-    quit_img = pygame.image.load('buttons/quit_button.png').convert_alpha()
-    audio_img = pygame.image.load('buttons/audio_button.png').convert_alpha()
-    back_img = pygame.image.load('buttons/back_button.png').convert_alpha()
-    plus_img = pygame.image.load('buttons/plus_button.png').convert_alpha()
-    minus_img = pygame.image.load('buttons/minus_button.png').convert_alpha()
-    pause_img = pygame.image.load('buttons/play_button.png').convert_alpha()
-    play_img = pygame.image.load('buttons/pause_button.png').convert_alpha()
-    retry_img = pygame.image.load('buttons/retry_button.png').convert_alpha()
-    home_img = pygame.image.load('buttons/home_button.png').convert_alpha()
-    credit_img = pygame.image.load('buttons/credit_button.png').convert_alpha()
-    start_img = pygame.image.load('buttons/start_button.png').convert_alpha()
-    levels_img = pygame.image.load('buttons/levels_button.png').convert_alpha()
-    first_lev_img = pygame.image.load('buttons/one_button.png').convert_alpha()
-    second_lev_img = pygame.image.load('buttons/two_button.png').convert_alpha()
-    third_lev_img = pygame.image.load('buttons/three_button.png').convert_alpha()
+    resume_img = pygame.image.load(resource_path('buttons\\resume_button.png')).convert_alpha()
+    quit_img = pygame.image.load(resource_path('buttons\\quit_button.png')).convert_alpha()
+    audio_img = pygame.image.load(resource_path('buttons\\audio_button.png')).convert_alpha()
+    back_img = pygame.image.load(resource_path('buttons\\back_button.png')).convert_alpha()
+    plus_img = pygame.image.load(resource_path('buttons\\plus_button.png')).convert_alpha()
+    minus_img = pygame.image.load(resource_path('buttons\\minus_button.png')).convert_alpha()
+    pause_img = pygame.image.load(resource_path('buttons\\play_button.png')).convert_alpha()
+    play_img = pygame.image.load(resource_path('buttons\\pause_button.png')).convert_alpha()
+    retry_img = pygame.image.load(resource_path('buttons\\retry_button.png')).convert_alpha()
+    home_img = pygame.image.load(resource_path('buttons\\home_button.png')).convert_alpha()
+    credit_img = pygame.image.load(resource_path('buttons\\credit_button.png')).convert_alpha()
+    start_img = pygame.image.load(resource_path('buttons\\start_button.png')).convert_alpha()
+    levels_img = pygame.image.load(resource_path('buttons\\levels_button.png')).convert_alpha()
+    first_lev_img = pygame.image.load(resource_path('buttons\\one_button.png')).convert_alpha()
+    second_lev_img = pygame.image.load(resource_path('buttons\\two_button.png')).convert_alpha()
+    third_lev_img = pygame.image.load(resource_path('buttons\\three_button.png')).convert_alpha()
 
-    # Game over image
-    game_over_img = pygame.image.load('tiles/game_over.png').convert_alpha()
-    game_over_img = pygame.transform.scale(game_over_img, (playground_width/2.5, playground_height/2.5))
-    win_img = pygame.image.load('tiles/win.png').convert_alpha()
+    # Game over and win image
+    game_over_img = pygame.image.load(resource_path('tiles\\game_over.png')).convert_alpha()
+    game_over_img = pygame.transform.scale(game_over_img, (playground_width / 2.5, playground_height / 2.5))
+    win_img = pygame.image.load(resource_path('tiles\\win.png')).convert_alpha()
     win_img = pygame.transform.scale(win_img, (playground_width / 2.5, playground_height / 2.5))
+    credit_pdf = pygame.image.load(resource_path('credit.png'))
+    credit = pygame.transform.scale(credit_pdf, (screen_width, screen_height))
+    back_buttons2 = button.Button(screen_width // 2+15, screen_height // 2 + 375, back_img, 0.575)
 
     # backgrounds images
-    start_background = pygame.image.load('backgrounds/back_ground2.png')
+    start_background = pygame.image.load(resource_path('backgrounds\\back_ground2.png'))
     start_background = pygame.transform.scale(start_background, (screen_width, screen_height))
-    back_ground = pygame.image.load('backgrounds/castle_transformed.jpeg').convert()
+    back_ground = pygame.image.load(resource_path('backgrounds\\castle_transformed.jpeg')).convert()
     back_ground = pygame.transform.scale(back_ground, (playground_width, playground_height))
 
     # create instance of the button
@@ -204,28 +209,28 @@ def main():
     quit_button = button.Button(screen_width // 2, screen_height // 2 + 210, quit_img, 0.575)
 
     # pause menu
-    resume_button = button.Button(screen_width//2, screen_height//2-175, resume_img, 0.545)
-    retry_button1 = button.Button(screen_width // 2, screen_height // 2-50, retry_img, 0.585)
-    audio_button = button.Button(screen_width//2,  screen_height // 2+75, audio_img, 0.545)
+    resume_button = button.Button(screen_width // 2, screen_height // 2 - 175, resume_img, 0.545)
+    retry_button1 = button.Button(screen_width // 2, screen_height // 2 - 50, retry_img, 0.585)
+    audio_button = button.Button(screen_width // 2, screen_height // 2 + 75, audio_img, 0.545)
     levels_button2 = button.Button(screen_width // 2, screen_height // 2 + 200, levels_img, 0.925)
     home_button_pause = button.Button(screen_width // 2, screen_height // 2 + 320, home_img, 0.925)
 
     # audio menu
-    plus_button = button.Button(screen_width // 2-150, screen_height // 2, plus_img, 0.925)
-    minus_button = button.Button(screen_width // 2+150, screen_height // 2, minus_img, 0.925)
-    pause_button = button.Button(screen_width // 2-100, screen_height // 2+100, pause_img, 1.1)
-    play_button = button.Button(screen_width // 2+100, screen_height // 2+100, play_img, 0.925)
-    back_button = button.Button(screen_width//2, screen_height // 2+200, back_img, 0.585)
+    plus_button = button.Button(screen_width // 2 - 150, screen_height // 2, plus_img, 0.925)
+    minus_button = button.Button(screen_width // 2 + 150, screen_height // 2, minus_img, 0.925)
+    pause_button = button.Button(screen_width // 2 - 100, screen_height // 2 + 100, pause_img, 1.1)
+    play_button = button.Button(screen_width // 2 + 100, screen_height // 2 + 100, play_img, 0.925)
+    back_button = button.Button(screen_width // 2, screen_height // 2 + 200, back_img, 0.585)
 
     # Lost and Win
-    retry_button2 = button.Button(screen_width//2, screen_height//2+100, retry_img, 0.585)
-    home_button = button.Button(screen_width // 2, screen_height//2+250, home_img, 0.925)
+    retry_button2 = button.Button(screen_width // 2, screen_height // 2 + 100, retry_img, 0.585)
+    home_button = button.Button(screen_width // 2, screen_height // 2 + 250, home_img, 0.925)
 
     # levels button
 
-    first_level_button = button.Button(screen_width//2-175, screen_height//2, first_lev_img, 1)
-    second_level_button = button.Button(screen_width//2, screen_height//2, second_lev_img, 1)
-    third_level_button = button.Button(screen_width//2+175, screen_height//2, third_lev_img, 1)
+    first_level_button = button.Button(screen_width // 2 - 175, screen_height // 2, first_lev_img, 1)
+    second_level_button = button.Button(screen_width // 2, screen_height // 2, second_lev_img, 1)
+    third_level_button = button.Button(screen_width // 2 + 175, screen_height // 2, third_lev_img, 1)
     back_button2 = button.Button(screen_width // 2, screen_height // 2 + 200, back_img, 0.585)
 
     def draw_text(text, font, text_colo, x_cor, y_cor):
@@ -240,8 +245,8 @@ def main():
                              (1250, horizontal * tile_size + 65))
         for vertical in range(21):
             # vertical lines
-            pygame.draw.line(screen, black, (250+vertical*tile_size, 65),
-                             (250+vertical*tile_size, 815))
+            pygame.draw.line(screen, black, (250 + vertical * tile_size, 65),
+                             (250 + vertical * tile_size, 815))
 
     run = True
 
@@ -266,6 +271,7 @@ def main():
             if credit_button.draw(screen):
                 menu_state = "credit"
                 last_menu_change_time = time.time()
+
             if start_button.draw(screen):
                 player1.rect.x, player1.rect.y = start_pos_p1_x, start_pos_y
                 player2.rect.right, player2.rect.y = start_pos_p2_x, start_pos_y
@@ -277,6 +283,11 @@ def main():
 
             if quit_button.draw(screen):
                 run = False
+        if menu_state == "credit":
+            screen.blit(credit, (0, 0))
+            if back_buttons2.draw(screen):
+                menu_state = "start_menu"
+                last_menu_change_time = time.time()
 
         if menu_state == "game":
 
@@ -295,7 +306,7 @@ def main():
             else:
                 world.door_open2 = False
 
-            draw_text("PRESS P TO PAUSE", main_font, white, playground_width-250, 30)
+            draw_text("PRESS P TO PAUSE", main_font, white, playground_width - 250, 30)
 
             world.update_world()
             player1.update()
@@ -367,7 +378,7 @@ def main():
             reset_game(player1, player2, world)
             screen.fill(back_grey)
             pygame.draw.rect(screen, white, (250, 65, playground_width, playground_height), 10)
-            screen.blit(game_over_img, (playground_width//2, playground_height//5-50))
+            screen.blit(game_over_img, (playground_width // 2, playground_height // 5 - 50))
 
             if retry_button2.draw(screen):
                 reset_game(player1, player2, world)
@@ -382,7 +393,7 @@ def main():
             screen.fill(back_grey)
 
             pygame.draw.rect(screen, white, (250, 65, playground_width, playground_height), 10)
-            screen.blit(win_img, (playground_width//2, playground_height//5-50))
+            screen.blit(win_img, (playground_width // 2, playground_height // 5 - 50))
 
             if retry_button2.draw(screen):
                 menu_state = "game"
@@ -460,7 +471,7 @@ def main():
                 run = False
 
         pygame.display.update()
-        
+
 
 if __name__ == "__main__":
     '''Pygame set up and call the main function '''
@@ -470,9 +481,8 @@ if __name__ == "__main__":
     screen = pygame.display.set_mode((1500, 875))
     clock = pygame.time.Clock()  # Create game clock
 
-    logo = pygame.image.load('backgrounds/fire_water.jpg')
+    logo = pygame.image.load(resource_path('backgrounds\\fire_water.jpg'))
     pygame.display.set_icon(logo)
     pygame.display.set_caption("THE ELEMENTARY ADVENTURE")
     main()
     pygame.quit()
-

@@ -1,6 +1,6 @@
 import pygame
 import Lava_Water
-
+from Resource_path import resource_path
 
 class World:
     def __init__(self, data, tile_size):
@@ -12,13 +12,13 @@ class World:
         self.door_open2 = False
 
         # load images
-        stone = pygame.image.load('tiles/green_ground.png')
-        half_stone_img = pygame.image.load('tiles/plateforme2.png')
-        stone2 = pygame.image.load('tiles/green_stone.png')
-        blue_door_close = pygame.image.load('tiles/blue_door_close.png')
-        red_door_close = pygame.image.load('tiles/red_door_close.png')
-        blue_door_open = pygame.image.load('tiles/blue_door.png')
-        red_door_open = pygame.image.load('tiles/red_door.png')
+        stone = pygame.image.load(resource_path('tiles\\green_ground.png'))
+        half_stone_img = pygame.image.load(resource_path('tiles\\plateforme2.png'))
+        stone2 = pygame.image.load(resource_path('tiles\\green_stone.png'))
+        blue_door_close = pygame.image.load(resource_path('tiles\\blue_door_close.png'))
+        red_door_close = pygame.image.load(resource_path('tiles\\red_door_close.png'))
+        blue_door_open = pygame.image.load(resource_path('tiles\\blue_door.png'))
+        red_door_open = pygame.image.load(resource_path('tiles\\red_door.png'))
 
         self.image1 = pygame.transform.scale(stone2, (self.tile_size, self.tile_size))
         self.image2 = pygame.transform.scale(stone, (self.tile_size, self.tile_size))

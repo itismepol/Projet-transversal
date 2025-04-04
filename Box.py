@@ -1,4 +1,5 @@
 import pygame
+from Resource_path import resource_path
 
 
 class Box(pygame.sprite.Sprite):
@@ -11,7 +12,7 @@ class Box(pygame.sprite.Sprite):
         self.box_speed = 0
         self.rect = pygame.Rect(self.x, self.y, self.side, self.side)
         self.screen = pygame.display.get_surface()
-        box_img = pygame.image.load('tiles/box.png').convert_alpha()
+        box_img = pygame.image.load(resource_path('tiles\\box.png')).convert_alpha()
         self.image = pygame.transform.scale(box_img, (self.side, self.side))
 
     def draw_rect(self):

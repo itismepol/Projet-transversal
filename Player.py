@@ -1,15 +1,15 @@
 import pygame
 import Box
-
+from Resource_path import resource_path
 
 class Player:
     def __init__(self, tiles_list, controls_keys, set_image, power):
-        self.player_stand = pygame.transform.scale(pygame.image.load(set_image['stand']).convert_alpha(), (39.5, 55.2))
-        self.player_jump = pygame.transform.scale(pygame.image.load(set_image['jump']).convert_alpha(), (39.5, 55.2))
-        self.player_land = pygame.transform.scale(pygame.image.load(set_image['land']).convert_alpha(), (39.5, 55.2))
+        self.player_stand = pygame.transform.scale(pygame.image.load(resource_path(set_image['stand'])).convert_alpha(), (39.5, 55.2))
+        self.player_jump = pygame.transform.scale(pygame.image.load(resource_path(set_image['jump'])).convert_alpha(), (39.5, 55.2))
+        self.player_land = pygame.transform.scale(pygame.image.load(resource_path(set_image['land'])).convert_alpha(), (39.5, 55.2))
 
         # Load walking images
-        player_right = [pygame.image.load(path).convert_alpha() for path in set_image['right']]
+        player_right = [pygame.image.load(resource_path(path)).convert_alpha() for path in set_image['right']]
         self.player_right = [pygame.transform.scale(image, (39.5, 55.2)) for image in player_right]
         self.player_left = [pygame.transform.flip(image, True, False) for image in self.player_right]
 

@@ -1,11 +1,12 @@
 import pygame
+from Resource_path import resource_path
 
 
 class Lava(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()
         pygame.sprite.Sprite.__init__(self)
-        img = pygame.image.load('tiles/lava.png').convert_alpha()
+        img = pygame.image.load(resource_path('tiles\\lava.png')).convert_alpha()
         tile_size = 50
         self.image = pygame.transform.scale(img, (tile_size, tile_size // 2))
         self.rect = self.image.get_rect()
@@ -17,7 +18,7 @@ class Water(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()
         pygame.sprite.Sprite.__init__(self)
-        img = pygame.image.load('tiles/water.png').convert_alpha()
+        img = pygame.image.load(resource_path('tiles\\water.png')).convert_alpha()
         tile_size = 50
         self.image = pygame.transform.scale(img, (tile_size, tile_size // 2))
         self.rect = self.image.get_rect()
@@ -29,7 +30,7 @@ class Poison(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()
         pygame.sprite.Sprite.__init__(self)
-        img = pygame.image.load('tiles/poisonV2.png').convert_alpha()
+        img = pygame.image.load(resource_path('tiles\\poisonV2.png')).convert_alpha()
         tile_size = 50
         self.image = pygame.transform.scale(img, (tile_size, tile_size // 2))
         self.rect = self.image.get_rect()
