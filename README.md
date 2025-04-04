@@ -16,8 +16,9 @@ Le code pourrait être optimisé.
 Malgré ces imperfections, c'est un projet qui __me tient à cœur__. J'y ai consacré beaucoup de temps et il m'a énormément appris. J'espère que vous apprécierez y jouer autant que j'ai apprécié le développer ! 😊
 
 ## 🚀 Installation
-# 1️⃣ Télécharger le jeu
-Un fichier exécutable main.exe est disponible. Pour le récupérer, utilisez la commande :
+__1️⃣ Télécharger le jeu__
+Un fichier exécutable main.exe est disponible. Pour le récupérer, utilisez la commande : 
+`wget https://raw.githubusercontent.com/itismepol/Projet-transversal/new_branch/.exe/main.exe`
 
 ## 🛠️ Technologies utilisées
 Le projet a été développé avec les outils suivants :
@@ -35,4 +36,4 @@ Dans les versions futures, j’aimerais :
 ✅ Ajouter de nouvelles mécaniques de gameplay.
 ✅ Réorganiser et commenter davantage le code pour le rendre plus propre et compréhensible.
 
-# Bonne aventure sur THE ELEMENTARY ADVENTURE ! 🎮🔥💧
+__Bonne aventure sur THE ELEMENTARY ADVENTURE ! 🎮🔥💧__
