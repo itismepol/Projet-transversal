@@ -47,6 +47,11 @@ Utilisez la commande suiavnte pour télécharger le projet en entier :
 - Nécessite l’installation des dépendances (comme pygame)
 
 
+## Comment jouer ?🎮
+
+
+
+
 
 ## 🛠️ Technologies utilisées
 Le projet a été développé avec les outils suivants :
