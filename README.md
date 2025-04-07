@@ -17,10 +17,11 @@ Malgré ces imperfections, c'est un projet qui __me tient à cœur__. J'y ai con
 
 ## 🚀 Installation
 
-__🔽Télécharger le jeu (Avec un exécutable)__
+__🔽Télécharger le jeu (Exécutable)__
 
 Un fichier exécutable main.exe est disponible. Pour le récupérer, utilisez la commande :
-`curl -O https://raw.githubusercontent.com/itismepol/Projet-transversal/.exe/main.exe`\
+
+`curl -O https://raw.githubusercontent.com/itismepol/Projet-transversal/.exe/main.exe`
 
  __Avantages__ :
 - Facile à utiliser (pas besoin d’installer Python)
@@ -31,12 +32,11 @@ Un fichier exécutable main.exe est disponible. Pour le récupérer, utilisez la
 - Ce fichier est très lourd
 - Certains antivirus ou navigateurs peuvent bloquer ou alerter sur les .exe par sécurité
  
----
 
 __🔽Télécharger le projet compet (Code source)__ :
 Utilisez la commande suiavnte pour télécharger le projet en entier:
 
-`git clone https://github.com/itismepol/Projet-transversal.git`\
+`git clone https://github.com/itismepol/Projet-transversal.git`
 
  __Avantages__ :
 - Accès complet au code source
