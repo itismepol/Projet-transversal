@@ -34,7 +34,7 @@ Un fichier exécutable main.exe est disponible. Pour le récupérer, utilisez la
  
 
 __🔽Télécharger le projet compet (Code source)__ :
-Utilisez la commande suiavnte pour télécharger le projet en entier:
+Utilisez la commande suiavnte pour télécharger le projet en entier :
 
 `git clone https://github.com/itismepol/Projet-transversal.git`
 
@@ -60,13 +60,16 @@ Le projet a été développé avec les outils suivants :
 ## 🔧 Améliorations possibles
 Dans les versions futures, j’aimerais :
 -✅ Améliorer les graphismes et l’interface utilisateur
+
 -✅ Optimiser le moteur physique du jeu
+
 -✅ Ajouter de nouvelles mécaniques de gameplay
+
 -✅ Réorganiser et commenter davantage le code pour le rendre plus propre et compréhensible
 
 ## ✉️ Contact
 
 Pour toute question, remarque ou conseil sur le projet, n'hésitez pas à me contacter :  
-📧 [paul.balaine@efrei.net](mailto:paul.balaine@efrei.net)\
+📧 [paul.balaine@efrei.net](mailto:paul.balaine@efrei.net)
 
 __Bienvenue sur THE ELEMENTARY ADVENTURE ! 🎮🔥💧__
