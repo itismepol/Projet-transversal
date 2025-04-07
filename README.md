@@ -59,6 +59,7 @@ Le projet a été développé avec les outils suivants :
 
 ## 🔧 Améliorations possibles
 Dans les versions futures, j’aimerais :
+
 -✅ Améliorer les graphismes et l’interface utilisateur
 
 -✅ Optimiser le moteur physique du jeu
@@ -72,4 +73,4 @@ Dans les versions futures, j’aimerais :
 Pour toute question, remarque ou conseil sur le projet, n'hésitez pas à me contacter :  
 📧 [paul.balaine@efrei.net](mailto:paul.balaine@efrei.net)
 
-__Bienvenue sur THE ELEMENTARY ADVENTURE ! 🎮🔥💧__
+__THE ELEMENTARY ADVENTURE ! 🎮🔥💧__
