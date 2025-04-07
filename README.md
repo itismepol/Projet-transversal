@@ -18,19 +18,27 @@ Malgré ces imperfections, c'est un projet qui __me tient à cœur__. J'y ai con
 ## 🚀 Installation
 __Télécharger le jeu__
 Un fichier exécutable main.exe est disponible. Pour le récupérer, utilisez la commande :
-`curl -O https://raw.githubusercontent.com/itismepol/Projet-transversal/.exe/main.exe`
+`curl -O https://raw.githubusercontent.com/itismepol/Projet-transversal/.exe/main.exe`\
  __Avantage__ :
-> Facile à utiliser
-> Version jouable immédiate
+- Facile à utiliser
+- Version jouable immédiate
 
  __Inconvénient__ :
-> Utilisable que sur Windows
-> Ce fichier est très lourd
-> Certains antivirus ou navigateurs peuvent bloquer ou alerter sur les .exe par sécurité
+- Utilisable que sur Windows
+- Ce fichier est très lourd
+- Certains antivirus ou navigateurs peuvent bloquer ou alerter sur les .exe par sécurité
 
 __Autre possibilité__ :
 Utilisez la commande suiavnte pour télécharger le projet en entier:
-'git clone https://github.com/itismepol/The-Elementary-Adventure.git'
+`git clone https://github.com/itismepol/Projet-transversal.git`
+ __Avantage__ :
+- Projet au complet
+- Possibilité de voir le code du jeu et de le modifier à votre guise
+
+ __Inconvénient__ :
+- Il vous faut installer Python et les dépendances
+
+
 
 ## 🛠️ Technologies utilisées
 Le projet a été développé avec les outils suivants :
