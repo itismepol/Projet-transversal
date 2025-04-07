@@ -7,7 +7,7 @@ L'objectif de ce projet était __d'apprendre la conception d'un jeu vidéo, de l
 
 ## 🎮 À propos du jeu
 
-**The Elementary Adventure** est un jeu de plateforme en coopération inspiré de *Fireboy & Watergirl*.
+**The Elementary Adventure** est un jeu de plateforme en coopération inspiré de [*Fireboy & Watergirl*](https://en.wikipedia.org/wiki/Fireboy_and_Watergirl).
 
 Vous incarnez **Fireboy** 🔥 (le personnage de feu, en rose) et **Watergirl** 💧 (le personnage d’eau, en bleu), deux héros qui doivent s'entraider pour s’échapper d’un donjon truffé de pièges.
 
