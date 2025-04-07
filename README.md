@@ -1,9 +1,9 @@
 ### THE ELEMENTARY ADVENTURE 🎮🔥💧
 ## 📖 Description
 Bienvenue dans __THE ELEMENTARY ADVENTURE__, un jeu en 2D inspiré de _Fireboy & Watergirl_.
-Ce projet a été réalisé en 2024 dans le cadre de __mon deuxième semestre de formation d'ingénieur à l'EFREI Paris__.
+Ce projet a été réalisé en 2024 par groupe dans le cadre de __notre deuxième semestre de formation d'ingénieur à l'EFREI Paris__.
 
-L'objectif de ce projet était __d'apprendre la conception d'un jeu vidéo, de la première idée jusqu'à l'implémentation du code__. Développé en __Python__ avec la bibliothèque Pygame, ce jeu représente mon __premier__ gros projet.
+L'objectif de ce projet était __d'apprendre la conception d'un jeu vidéo, de la première idée jusqu'à l'implémentation du code__. Développé en __Python__ avec la bibliothèque Pygame, ce jeu représente notre __premier__ gros projet.
 
 ## 🎮 À propos du jeu
 
@@ -36,8 +36,23 @@ Le jeu se joue à deux joueurs, sur un **même clavier**.
 |            | Aller à droite | `D`            |
 
 
-# Options
+## 🔊 Audio
 
+Une musique d’ambiance est jouée au démarrage du jeu.  
+Vous pouvez **mettre la musique en pause** ou **ajuster le volume** en appuyant sur la touche **`P`** de votre clavier, puis en accédant au **menu audio**.
+
+
+## ⏸️ Menu Pause
+
+Appuyez sur la touche **`P`** à tout moment pendant le jeu pour ouvrir le **menu pause**.
+
+Depuis ce menu, vous pouvez :
+- 🔁 **Recommencer** le niveau actuel
+- 🗺️ **Changer de niveau**
+- 🎵 **Accéder aux paramètres audio**
+- 🏠 **Retourner au menu principal**
+
+  
 # 💡 À noter :
 
 Les graphismes sont simples,
@@ -47,6 +62,7 @@ La physique du jeu peut être améliorée,
 Le code pourrait être optimisé.
 
 Malgré ces imperfections, c'est un projet qui __me tient à cœur__. J'y ai consacré beaucoup de temps et il m'a énormément appris. J'espère que vous apprécierez y jouer autant que j'ai apprécié le développer ! 😊
+
 
 ## 🚀 Installation
 
@@ -64,8 +80,8 @@ Un fichier exécutable main.exe est disponible. Pour le récupérer, utilisez la
 - Utilisable que sur Windows
 - Ce fichier est très lourd
 - Certains antivirus ou navigateurs peuvent bloquer ou alerter sur les .exe par sécurité
- 
 
+ 
 __🔽Télécharger le projet compet (Code source)__ :
 Utilisez la commande suiavnte pour télécharger le projet en entier :
 
@@ -80,12 +96,6 @@ Utilisez la commande suiavnte pour télécharger le projet en entier :
 - Nécessite l’installation des dépendances (comme pygame)
 
 
-## Comment jouer ?🎮
-
-
-
-
-
 ## 🛠️ Technologies utilisées
 Le projet a été développé avec les outils suivants :
 
@@ -94,6 +104,7 @@ Le projet a été développé avec les outils suivants :
 > Pygame (pour le moteur du jeu) 🎮
 
 > PyInstaller (pour générer le fichier exécutable .exe) 💾
+
 
 ## 🔧 Améliorations possibles
 Dans les versions futures, j’aimerais :
@@ -105,6 +116,7 @@ Dans les versions futures, j’aimerais :
 -✅ Ajouter de nouvelles mécaniques de gameplay
 
 -✅ Réorganiser et commenter davantage le code pour le rendre plus propre et compréhensible
+
 
 ## ✉️ Contact
 
