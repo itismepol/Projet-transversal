@@ -1,9 +1,42 @@
 ### THE ELEMENTARY ADVENTURE 🎮🔥💧
 ## 📖 Description
-Bienvenue dans __THE ELEMENTARY ADVENTURE__, un jeu inspiré de _Fireboy & Watergirl_.
+Bienvenue dans __THE ELEMENTARY ADVENTURE__, un jeu en 2D inspiré de _Fireboy & Watergirl_.
 Ce projet a été réalisé en 2024 dans le cadre de __mon deuxième semestre de formation d'ingénieur à l'EFREI Paris__.
 
 L'objectif de ce projet était __d'apprendre la conception d'un jeu vidéo, de la première idée jusqu'à l'implémentation du code__. Développé en __Python__ avec la bibliothèque Pygame, ce jeu représente mon __premier__ gros projet.
+
+## 🎮 À propos du jeu
+
+**The Elementary Adventure** est un jeu de plateforme en coopération inspiré de *Fireboy & Watergirl*.
+
+Vous incarnez **Fireboy** 🔥 (le personnage de feu, en rose) et **Watergirl** 💧 (le personnage d’eau, en bleu), deux héros qui doivent s'entraider pour s’échapper d’un donjon truffé de pièges.
+
+Leur mission : atteindre chacun **la porte de leur couleur** tout en évitant les dangers élémentaires.
+
+### ⚠️ Règles élémentaires
+
+- **Fireboy** peut marcher sur la **lave**, mais il ne survit pas dans l’**eau**.
+- **Watergirl** peut marcher dans l’**eau**, mais pas dans la **lave**.
+- ⚠️ **Le poison vert** est mortel pour **les deux personnages**.
+
+Le jeu comprend **3 niveaux**, chacun avec un parcours unique, accessibles depuis le **menu principal**.
+
+
+## 🕹️ Commandes
+
+Le jeu se joue à deux joueurs, sur un **même clavier**.
+
+| Personnage | Action       | Touche         |
+|------------|--------------|----------------|
+| Fireboy 🔥 | Sauter       | ⬆️ Flèche haut |
+|            | Aller à gauche | ⬅️ Flèche gauche |
+|            | Aller à droite | ➡️ Flèche droite |
+| Watergirl 💧 | Sauter      | `Z`            |
+|            | Aller à gauche | `Q`            |
+|            | Aller à droite | `D`            |
+
+
+# Options
 
 # 💡 À noter :
 
@@ -21,7 +54,7 @@ __🔽Télécharger le jeu (Exécutable)__
 
 Un fichier exécutable main.exe est disponible. Pour le récupérer, utilisez la commande :
 
-`curl -O https://raw.githubusercontent.com/itismepol/Projet-transversal/.exe/main.exe`
+`curl -O https://raw.githubusercontent.com/itismepol/Projet-transversal/dist/main.exe`
 
  __Avantages__ :
 - Facile à utiliser (pas besoin d’installer Python)
