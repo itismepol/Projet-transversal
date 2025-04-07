@@ -191,7 +191,7 @@ def main():
     game_over_img = pygame.transform.scale(game_over_img, (playground_width / 2.5, playground_height / 2.5))
     win_img = pygame.image.load(resource_path('tiles\\win.png')).convert_alpha()
     win_img = pygame.transform.scale(win_img, (playground_width / 2.5, playground_height / 2.5))
-    credit_pdf = pygame.image.load(resource_path('credit.png'))
+    credit_pdf = pygame.image.load(resource_path('Credit.png'))
     credit = pygame.transform.scale(credit_pdf, (screen_width, screen_height))
     back_buttons2 = button.Button(screen_width // 2+15, screen_height // 2 + 375, back_img, 0.575)
 
